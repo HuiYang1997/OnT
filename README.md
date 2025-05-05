@@ -9,6 +9,7 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - Support for role embeddings as rotations over hyperbolic spaces
 
 ## Project Structure
+**The data and models folders should be downloaded and unzipped to the root directory. The google drive link are all anonymous links.**
 - `OnT.py`: Main model implementation containing the OntologyTransformer class
 - `data/`: Contains training and testing data, download from [here](https://drive.google.com/file/d/1pqHKdj0R-M45ny44xwhsL3n3zeZORsvz/view?usp=drive_link)
 - `models/`: Stores pre-trained and fine-tuned models, download from [here](https://drive.google.com/file/d/1t9xWcLHoEE55F0bOPMCw5jltWBxHc2vR/view?usp=drive_link)
