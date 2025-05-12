@@ -21,6 +21,8 @@ pip install torch transformers
 # Add other dependencies as needed
 ```
 
+Please also install HiT as instructed in their repository: \url{https://github.com/KRR-Oxford/HierarchyTransformers}.
+
 ## Usage
 Then load the model and use it for inference or training as follows.
 
