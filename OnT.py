@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from typing import Dict, Any
-from src.hierarchy_transformers.models.hierarchy_transformer import HierarchyTransformer
+from HierarchyTransformers.src.hierarchy_transformers.models.hierarchy_transformer import HierarchyTransformer
 
 class OntologyTransformer(nn.Module):
     """A wrapper model that contains HierarchyTransformer as a sub-attribute."""
