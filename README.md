@@ -16,12 +16,8 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - `normalization/`: Scripts for nomralizing the EL part of a given ontology. See `normalization/Readme.md` for details.
 
 ## Installation
-```bash
-pip install torch transformers 
-# Add other dependencies as needed
-```
+Please first install [HiT](https://github.com/KRR-Oxford/HierarchyTransformers) through GitHub as instructed in their repository.
 
-Please also install [HiT](https://github.com/KRR-Oxford/HierarchyTransformers) as instructed in their repository.
 
 ## Usage
 Then load the model and use it for inference or training as follows.
