@@ -28,7 +28,8 @@ import torch
 from OnT import OntologyTransformer
 
 # Initialize the ont model
-path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN"
+# OnTr is the full version, OnT the version without embedding
+path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN" 
 ont = OntologyTransformer.load(path)
 
 # entity names to be encoded.
