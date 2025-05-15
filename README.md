@@ -28,7 +28,7 @@ import torch
 from OnT import OntologyTransformer
 
 # Initialize the ont model
-# OnTr is the full version, OnT the version without embedding
+# OnTr is the full version, OnT is the simple version trained without embedding
 path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN" 
 ont = OntologyTransformer.load(path)
 
