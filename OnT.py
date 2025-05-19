@@ -142,9 +142,13 @@ class OntologyTransformer(nn.Module):
         
         return {"sentence_embedding": concept_emd, "rotated_embedding": scaled_emb}
     
-    def score_hierarchy(self, child_embeds: torch.Tensor, parent_embeds: torch.Tensor) -> torch.Tensor:
+    def score_hierarchy(self, child_embeds: torch.Tensor, parent_embeds: torch.Tensor, weight: float=1.0) -> torch.Tensor:
         """Maintain compatibility with HierarchyTransformer's scoring function."""
-        return self.hit_model.score_hierarchy(child_embeds, parent_embeds)
+        distances = self.manifold.dist(child_embeds, parent_embeds)
+        child_norms = self.manifold.dist0(child_embeds)
+        parent_norms = self.manifold.dist0(parent_embeds)
+        dist_norm = distances + weight * (parent_norms - child_norms)
+        return -dist_norm
     
     @property
     def manifold(self):
