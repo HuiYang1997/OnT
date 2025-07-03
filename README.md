@@ -17,7 +17,7 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - `HierarchyTransformers/`: Repository of [HiT](https://github.com/KRR-Oxford/HierarchyTransformers), to be installed through GitHub
 
 ## Installation
-Please first install [HiT](https://github.com/KRR-Oxford/HierarchyTransformers) through GitHub in this path, following the instructions of their repository. Our implementation is currently also fixed on sentence-transformers=3.4.0.dev0.
+Please first install [HiT](https://github.com/KRR-Oxford/HierarchyTransformers) through GitHub in this path, following the instructions of their repository. Our implementation is currently also fixed on `sentence-transformers=3.4.0.dev0`.
 
 
 ## Usage
@@ -47,7 +47,7 @@ role_rotations, role_scalings = ont.encode_roles(role_sentences)
 ```
 
 
-For training, run the following command (remember to update the **dataset_path** and **dataset_name** in config.yaml!):
+For training, run the following command. Remember to update the **dataset_path** and **dataset_name** in `config.yaml` :
 ```
 python training_ont.py -c config.yaml
 ```
