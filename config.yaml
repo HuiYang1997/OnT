@@ -1,0 +1,25 @@
+# dataset from local path
+dataset_path: "Your/dataset/path" 
+dataset_name: "Your/dataset/name"
+
+# pre-trained model from Hugging Face
+# model_path: "sentence-transformers/all-MiniLM-L6-v2"
+model_path: "sentence-transformers/all-MiniLM-L12-v2"
+# model_path: "sentence-transformers/all-mpnet-base-v2"
+
+# training config
+num_train_epochs: 1
+train_batch_size: 64
+eval_batch_size: 32
+learning_rate: 1e-5
+role_emd_mode: "sentenceEmbedding" 
+role_model_mode: "rotation" 
+existence_loss_kind: "hit" 
+hit_loss: 
+  clustering_loss_weight: 1.0
+  clustering_loss_margin: 3.0
+  centripetal_loss_weight: 1.0
+  centripetal_loss_margin: 0.5
+logical_loss:
+  conj_weight: 1.0  
+  exist_weight: 1.0
