@@ -47,7 +47,7 @@ role_rotations, role_scalings = ont.encode_roles(role_sentences)
 ```
 
 
-For training, run the following command (you could adjust the parameters in config.yaml):
+For training, run the following command (remember to update the **dataset_path** and **dataset_name** in config.yaml!):
 ```
 python training_ont.py -c config.yaml
 ```
