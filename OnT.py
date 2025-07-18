@@ -201,8 +201,7 @@ class OntologyTransformer(nn.Module):
         
         return output_path
     
-    @staticmethod
-    def load(input_path: str):
+    def from_pretrained(input_path: str):
         """Load the model with all its attributes.
         
         Args:
