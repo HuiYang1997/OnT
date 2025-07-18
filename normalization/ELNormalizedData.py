@@ -3,6 +3,7 @@ import os
 import re
 import shutil
 import sys
+import argparse
 
 import numpy as np
 from typing import Dict, List, Optional
@@ -436,8 +437,13 @@ class ELNormalizedData:
         self.save()
 
 if __name__ == '__main__':
-    input_ont_path = "your_ont_path"
-    output_dir = "your_output_dir"
+    parser = argparse.ArgumentParser(description='Process ontology data.')
+    parser.add_argument('-i', '--input_ontology_path', type=str, required=True,
+                        help='Path to the input ontology file')
+    parser.add_argument('-o', '--output_directory', type=str, required=True,
+                        help='Path to the output directory')
+
+    args = parser.parse_args()
 
     # run the following code to generate the EL normalized dataset
-    ELNormalizedData().main(input_ont_path, output_dir)
+    ELNormalizedData().main(args.input_ontology_path, args.output_directory)
