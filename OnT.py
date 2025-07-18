@@ -32,7 +32,7 @@ class OntologyTransformer(nn.Module):
     
     def encode_roles(self, role_sentences):
         role_embed = self.role_model(
-            self.hit_model.encode(role_sentences)
+            self.hit_model.encode(role_sentences, convert_to_tensor=True)
         )
         
         if self.role_model_mode == 'rotation':
