@@ -30,7 +30,7 @@ from OnT import OntologyTransformer
 # Initialize the ont model
 # OnTr is the full version, OnT is the simple version trained without embedding
 path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN" 
-ont = OntologyTransformer.load(path)
+ont = OntologyTransformer.from_pretrained(path)
 
 # entity names to be encoded.
 entity_names = ["continuant", "occurrent", "independent continuant", "process"]
