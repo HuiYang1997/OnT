@@ -31,10 +31,12 @@ Then load the model and use it for inference or training as follows.
 import torch
 from OnT import OntologyTransformer
 
-# Initialize the ont model
-# OnTr is the full version, OnT is the simple version trained without embedding
-path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN" 
-ont = OntologyTransformer.from_pretrained(path)
+# Option 1: Load from Hugging Face (recommended)
+ont = OntologyTransformer.from_pretrained('Hui97/OnT-MiniLM-L12-galen')
+
+# Option 2: Load from local path
+# path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN" 
+# ont = OntologyTransformer.from_pretrained(path)
 
 # entity names to be encoded.
 entity_names = ["continuant", "occurrent", "independent continuant", "process"]
@@ -54,4 +56,23 @@ role_rotations, role_scalings = ont.encode_roles(role_sentences)
 For training, run the following command. Remember to update the **dataset_path** and **dataset_name** in `config.yaml` :
 ```
 python train_ont.py -c config.yaml
+```
+
+## Available Pre-trained Models
+
+The following models are available on Hugging Face and can be loaded directly:
+
+| Model Name | Base Model | Dimension | Training Dataset |
+|------------|------------|-----------|------------------|
+| `Hui97/OnT-MPNet-galen` | MPNet | 768 | GALEN |
+| `Hui97/OnT-MPNet-anatomy` | MPNet | 768 | ANATOMY |
+| `Hui97/OnT-MPNet-go` | MPNet | 768 | GO |
+| `Hui97/OnT-MiniLM-L12-galen` | MiniLM-L12 | 384 | GALEN |
+| `Hui97/OnT-MiniLM-L12-anatomy` | MiniLM-L12 | 384 | ANATOMY |
+| `Hui97/OnT-MiniLM-L12-go` | MiniLM-L12 | 384 | GO |
+
+All models can be loaded using:
+```python
+from OnT import OntologyTransformer
+ont = OntologyTransformer.from_pretrained('Hui97/OnT-MiniLM-L12-galen')
 ```
