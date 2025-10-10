@@ -1,5 +1,8 @@
 # OnT (Language Models as Ontology Encoder)
 
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/collections/Hui97/ontology-transformer-68e8fdea10cba273bfdc687c)
+
+
 ## Project Overview
 OnT is a language model-based framework for ontology embeddings, enabling effective representation of concepts as points in hyperbolic space and axioms as hierarchical relationships between concepts. Built upon the [HierarchyTransformer](https://github.com/KRR-Oxford/HierarchyTransformers), this implementation provides enhanced capabilities for ontological reasoning through specialized embedding techniques such as concept rotation, transition, and existential quantifier representation. The model has been trained on various biomedical ontologies including GO, GALEN, and ANATOMY datasets. For the test of geometric-embedding methods, please refer to the [BoxSquaredEL](https://github.com/KRR-Oxford/BoxSquaredEL) and [TransBox](https://github.com/HuiYang1997/TransBox).
 
