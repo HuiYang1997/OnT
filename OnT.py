@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from typing import Dict, Any
-from HierarchyTransformers.src.hierarchy_transformers.models.hierarchy_transformer import HierarchyTransformer
+from hierarchy_transformers.models.hierarchy_transformer import HierarchyTransformer
 
 class OntologyTransformer(nn.Module):
     """A wrapper model that contains HierarchyTransformer as a sub-attribute."""
@@ -201,6 +201,7 @@ class OntologyTransformer(nn.Module):
         
         return output_path
     
+    @staticmethod
     def from_pretrained(input_path: str):
         """Load the model with all its attributes.
         
@@ -208,7 +209,7 @@ class OntologyTransformer(nn.Module):
             input_path: Path from which the model will be loaded
             
         Returns:
-            Loaded HierarchyTransformerWrapper model
+            Loaded OntologyTransformer model
         """
         # Load base HierarchyTransformer model
         base_model = HierarchyTransformer.from_pretrained(input_path)
@@ -237,6 +238,12 @@ class OntologyTransformer(nn.Module):
         # Load role_model weights if they exist
         role_model_path = os.path.join(input_path, 'role_model.pt')
         if os.path.exists(role_model_path):
-            onT.role_model.load_state_dict(torch.load(role_model_path))
+            # Get the device of the base model
+            device = next(base_model.parameters()).device
+            onT.role_model.load_state_dict(torch.load(role_model_path, map_location=device))
+        
+        # Move role_model to the same device as base_model
+        device = next(base_model.parameters()).device
+        onT.role_model = onT.role_model.to(device)
         
         return onT
