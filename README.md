@@ -21,7 +21,7 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - `models/`: Stores pre-trained and fine-tuned models, download from [here](https://drive.google.com/file/d/1t9xWcLHoEE55F0bOPMCw5jltWBxHc2vR/view?usp=drive_link) or from huggingface [View Models on Hugging Face](https://huggingface.co/collections/Hui97/ontology-transformer-68e8fdea10cba273bfdc687c)
 
 - `normalization/`: Scripts for normalizing the EL part of a given ontology. See `normalization/Readme.md` for details.
-- `HierarchyTransformers/`: Repository of [HiT](https://github.com/KRR-Oxford/HierarchyTransformers), to be installed through GitHub
+
 
 ## Installation
 We recommend using Conda for a reproducible setup. The steps below install PyTorch, HierarchyTransformers, and a compatible `sentence-transformers` version, then perform a quick verification.
