@@ -1,6 +1,8 @@
 # OnT (Language Models as Ontology Encoder)
 
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/collections/Hui97/ontology-transformer-68e8fdea10cba273bfdc687c)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17314434.svg)](https://zenodo.org/records/17314434)
+
 
 
 ## Project Overview
@@ -14,7 +16,8 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 ## Project Structure
 **The data and models folders should be downloaded and unzipped to the root directory. The Google Drive links are all anonymous.**
 - `OnT.py`: Main model implementation containing the OntologyTransformer class
-- `data/`: Contains training and testing data, download from [here](https://drive.google.com/file/d/1pqHKdj0R-M45ny44xwhsL3n3zeZORsvz/view?usp=drive_link)
+- `data/`: Contains training and testing data, download from [here](https://drive.google.com/file/d/1pqHKdj0R-M45ny44xwhsL3n3zeZORsvz/view?usp=drive_link) or from Zenodo [View Dataset on Zenodo](https://zenodo.org/records/17314434)
+
 - `models/`: Stores pre-trained and fine-tuned models, download from [here](https://drive.google.com/file/d/1t9xWcLHoEE55F0bOPMCw5jltWBxHc2vR/view?usp=drive_link) or from huggingface [View Models on Hugging Face](https://huggingface.co/collections/Hui97/ontology-transformer-68e8fdea10cba273bfdc687c)
 
 - `normalization/`: Scripts for normalizing the EL part of a given ontology. See `normalization/Readme.md` for details.
