@@ -24,8 +24,27 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - `HierarchyTransformers/`: Repository of [HiT](https://github.com/KRR-Oxford/HierarchyTransformers), to be installed through GitHub
 
 ## Installation
-Please first install [HiT](https://github.com/KRR-Oxford/HierarchyTransformers) through GitHub in this path, following the instructions of their repository. Our implementation is currently also fixed on `sentence-transformers=3.4.0.dev0`.
+We recommend using Conda for a reproducible setup. The steps below install PyTorch, HierarchyTransformers, and a compatible `sentence-transformers` version, then perform a quick verification.
 
+### 1) Create and activate Conda environment
+```bash
+conda create -y -n ont python=3.12
+conda activate ont
+python -V
+```
+
+### 2) Install PyTorch (GPU, CUDA 12.1)
+```bash
+conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+```
+
+### 3) Install HierarchyTransformers and sentence-transformers
+- Per HiT's current setup, we temporarily pin to `sentence-transformers==3.4.0` (not the latest).
+
+```bash
+pip install git+https://github.com/KRR-Oxford/HierarchyTransformers.git
+pip install 'sentence-transformers==3.4.0'
+```
 
 ## Usage
 Then load the model and use it for inference or training as follows.
@@ -34,12 +53,9 @@ Then load the model and use it for inference or training as follows.
 import torch
 from OnT import OntologyTransformer
 
-# Option 1: Load from Hugging Face (recommended)
+# Load from Hugging Face (recommended)
 ont = OntologyTransformer.from_pretrained('Hui97/OnT-MiniLM-L12-galen')
 
-# Option 2: Load from local path
-# path = "models/inferences/OnTr-all-MiniLM-L12-v2-GALEN" 
-# ont = OntologyTransformer.from_pretrained(path)
 
 # entity names to be encoded.
 entity_names = ["continuant", "occurrent", "independent continuant", "process"]
@@ -50,8 +66,8 @@ entity_embeddings = ont.encode_concept(entity_names)
 # role sentences to be encoded.
 role_sentences = ["application attribute", "attribute", "chemical modifier", "chemical process modifier attribute"]
 
-# get the role embeddings, consist of the rotation and scaling
-role_rotations, role_scalings = ont.encode_roles(role_sentences)
+# get the role embeddings, consist of the rotation and scaling (regarded as 1 by default for model uploaded to huggingface)
+role_rotations, _ = ont.encode_roles(role_sentences)
 
 ```
 
