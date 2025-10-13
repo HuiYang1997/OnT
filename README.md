@@ -30,7 +30,6 @@ We recommend using Conda for a reproducible setup. The steps below install PyTor
 ```bash
 conda create -y -n ont python=3.12
 conda activate ont
-python -V
 ```
 
 ### 2) Install PyTorch (GPU, CUDA 12.1)
