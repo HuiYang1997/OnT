@@ -202,7 +202,7 @@ class OntologyTransformer(nn.Module):
         return output_path
     
     @staticmethod
-    def from_pretrained(input_path: str):
+    def from_pretrained(input_path: str, revision: str | None = None):
         """Load the model with all its attributes.
         
         Args:
@@ -212,7 +212,7 @@ class OntologyTransformer(nn.Module):
             Loaded OntologyTransformer model
         """
         # Load base HierarchyTransformer model
-        base_model = HierarchyTransformer.from_pretrained(input_path)
+        base_model = HierarchyTransformer.from_pretrained(input_path, revision=revision)
         
         # Load wrapper configuration
         import json
