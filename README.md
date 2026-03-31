@@ -13,6 +13,37 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - Modeling of hierarchical relationships between concepts
 - Support for role embeddings as rotations over hyperbolic spaces
 
+## Installation via pip
+ 
+The easiest way to get started is to install the package from PyPI [ontology-transformer](https://pypi.org/project/ontology-transformer):
+ 
+```bash
+pip install ontology-transformer
+```
+ 
+You can **fine-tune the model directly from your OWL ontology file** without any manual preprocessing:
+ 
+```python
+from ont import OntologyTransformer
+ 
+# Simply provide your OWL file path - that's it!
+model = OntologyTransformer.fit(
+    owl_path="path/to/your/ontology.owl",  # Your ontology file
+    output_dir="./my_ontology_model",
+    num_epochs=5,
+    batch_size=128,
+    eval_ratio=0.1  # Use 10% for evaluation
+)
+ 
+# The model is now fine-tuned on your ontology
+# Use it immediately for encoding
+embeddings = model.encode(["YourConcept1", "YourConcept2"])
+ 
+# Save for later use
+model.save("./my_ontology_model/final")
+```
+
+
 ## Project Structure
 **The data and models folders should be downloaded and unzipped to the root directory. The Google Drive links are all anonymous.**
 - `OnT.py`: Main model implementation containing the OntologyTransformer class
@@ -23,7 +54,8 @@ OnT is a language model-based framework for ontology embeddings, enabling effect
 - `normalization/`: Scripts for normalizing the EL part of a given ontology. See `normalization/Readme.md` for details.
 
 
-## Installation
+
+## Installation from Github 
 We recommend using Conda for a reproducible setup. The steps below install PyTorch, HierarchyTransformers, and a compatible `sentence-transformers` version, then perform a quick verification.
 
 ### 1) Create and activate Conda environment
