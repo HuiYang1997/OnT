@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ontology-transformer"
-version = "0.1.6"
+version = "0.1.7"
 description = "End-to-end ontology embedding via fine-tuning sentence transformers with hyperbolic geometry and role-based rotation for existential restrictions."
 readme = "README.md"
 license = {text = "Apache-2.0"}

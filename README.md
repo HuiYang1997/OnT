@@ -74,11 +74,11 @@ conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c 
 ```
 
 ### 3) Install HierarchyTransformers and sentence-transformers
-- Per HiT's current setup, we temporarily pin to `sentence-transformers==3.4.0` (not the latest).
+- `ontology-transformer` supports `sentence-transformers>=3.0`, including 6.x; no 3.4.0 pin is required.
 
 ```bash
 pip install git+https://github.com/KRR-Oxford/HierarchyTransformers.git
-pip install 'sentence-transformers==3.4.0'
+pip install 'sentence-transformers>=3.0'
 ```
 
 ## Usage
@@ -96,7 +96,7 @@ ont = OntologyTransformer.from_pretrained('Hui97/OnT-MiniLM-L12-galen')
 entity_names = ["continuant", "occurrent", "independent continuant", "process"]
 
 # get the entity embeddings
-entity_embeddings = ont.encode_concept(entity_names)
+entity_embeddings = ont.encode(entity_names)
 
 # role sentences to be encoded.
 role_sentences = ["application attribute", "attribute", "chemical modifier", "chemical process modifier attribute"]

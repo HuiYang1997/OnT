@@ -131,7 +131,7 @@ class OntologyTransformer(nn.Module):
             else:
                 rotation = role_embed[..., 1:]
             scaling = torch.exp(role_embed[..., 0])
-        return rotation, scaling
+            return rotation, scaling
 
     # ------------------------------------------------------------------ #
     #  Internal forward methods (used during training)
