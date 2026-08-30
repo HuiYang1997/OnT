@@ -20,6 +20,10 @@ The easiest way to get started is to install the package from PyPI [ontology-tra
 ```bash
 pip install ontology-transformer
 ```
+
+The distribution is named `ontology-transformer`, while its Python import package is
+lowercase `ont`. The root-level `OnT.py` file is retained as legacy research code and
+is not the module installed from PyPI.
  
 You can **fine-tune the model directly from your OWL ontology file** without any manual preprocessing:
  
@@ -82,7 +86,7 @@ Then load the model and use it for inference or training as follows.
 
 ```python
 import torch
-from OnT import OntologyTransformer
+from ont import OntologyTransformer
 
 # Load from Hugging Face (recommended)
 ont = OntologyTransformer.from_pretrained('Hui97/OnT-MiniLM-L12-galen')
@@ -123,6 +127,6 @@ The following models are available on Hugging Face and can be loaded directly:
 
 All models can be loaded using:
 ```python
-from OnT import OntologyTransformer
+from ont import OntologyTransformer
 ont = OntologyTransformer.from_pretrained('Hui97/OnT-MiniLM-L12-galen')
 ```
