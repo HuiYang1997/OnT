@@ -10,7 +10,7 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HuiYang1997/OnT/blob/main/notebooks/OnT_Quickstart.ipynb)
 
 [`notebooks/OnT_Quickstart.ipynb`](https://github.com/HuiYang1997/OnT/blob/main/notebooks/OnT_Quickstart.ipynb) shows the whole workflow in four steps: install the package,
-build a small pizza ontology and train OnT on it with one `fit(...)` call, embed concepts (including ∃r.C),
+load a small pizza ontology ([`notebooks/pizza.ofn`](https://github.com/HuiYang1997/OnT/blob/main/notebooks/pizza.ofn)) and train OnT on it with one `fit(...)` call, embed concepts (including ∃r.C),
 and score subsumptions C ⊑ D. It runs on the free Colab CPU runtime in about two to three minutes.
 
 ## Project Overview
