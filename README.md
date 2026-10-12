@@ -5,6 +5,14 @@
 
 
 
+## Quickstart in Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HuiYang1997/OnT/blob/main/notebooks/OnT_Quickstart.ipynb)
+
+[`notebooks/OnT_Quickstart.ipynb`](https://github.com/HuiYang1997/OnT/blob/main/notebooks/OnT_Quickstart.ipynb) shows the whole workflow in four steps: install the package,
+build a small pizza ontology and train OnT on it with one `fit(...)` call, embed concepts (including ∃r.C),
+and score subsumptions C ⊑ D. It runs on the free Colab CPU runtime in about two to three minutes.
+
 ## Project Overview
 OnT is a language model-based framework for ontology embeddings, enabling effective representation of concepts as points in hyperbolic space and axioms as hierarchical relationships between concepts. Built upon the [HierarchyTransformer](https://github.com/KRR-Oxford/HierarchyTransformers), this implementation provides enhanced capabilities for ontological reasoning through specialized embedding techniques such as concept rotation, transition, and existential quantifier representation. The model has been trained on various biomedical ontologies including GO, GALEN, and ANATOMY datasets. For the test of geometric-embedding methods, please refer to the [BoxSquaredEL](https://github.com/KRR-Oxford/BoxSquaredEL) and [TransBox](https://github.com/HuiYang1997/TransBox).
 
