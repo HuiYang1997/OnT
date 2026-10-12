@@ -7,6 +7,9 @@ import torch
 
 from collections import Counter
 
+# np.trapz was removed in NumPy 2.4; np.trapezoid exists since NumPy 2.0.
+_trapezoid = getattr(np, "trapezoid", None) or np.trapz
+
 
 def compute_metrics(ranks, num_entities):
     ranks = ranks.cpu().numpy()
@@ -39,7 +42,7 @@ def compute_rank_roc(ranks_dict, num_classes):
 
     tprs.append(1)
     fprs.append(1)
-    auc = np.trapz(tprs, fprs)
+    auc = _trapezoid(tprs, fprs)
     return auc
     
 def dists_to_ranks(dists, targets):

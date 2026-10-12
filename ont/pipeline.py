@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
 from typing import Optional
 
@@ -34,6 +35,12 @@ logger = logging.getLogger(__name__)
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("transformers.modeling_utils").setLevel(logging.WARNING)
 logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
+
+
+def _warmup_steps(num_examples: int, batch_size: int, num_epochs: float, ratio: float = 0.1, cap: int = 500) -> int:
+    """Warm up for `ratio` of the optimisation steps (at most `cap`), so that small ontologies reach the full learning rate."""
+    steps_per_epoch = max(1, math.ceil(num_examples / batch_size))
+    return min(cap, int(ratio * steps_per_epoch * num_epochs))
 
 
 def fit(
@@ -194,7 +201,7 @@ def fit(
         learning_rate=float(learning_rate),
         per_device_train_batch_size=int(batch_size),
         per_device_eval_batch_size=int(eval_batch_size),
-        warmup_steps=min(500, max(0, int(0.1 * num_epochs * 342))),  # scale with epochs
+        warmup_steps=_warmup_steps(len(dataset["train"]), int(batch_size), float(num_epochs)),
         eval_strategy="no" if _is_fractional or not val_evaluator else "epoch",
         save_strategy="no" if _is_fractional else "epoch",
         save_total_limit=2 if not _is_fractional else 0,
