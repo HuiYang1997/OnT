@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/family#"
+     xml:base="http://example.org/family"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/family"/>
+    <owl:ObjectProperty rdf:about="http://example.org/family#hasParent">
+        <rdfs:label>has parent</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://example.org/family#hasChild">
+        <rdfs:label>has child</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Class rdf:about="http://example.org/family#Father">
+        <rdfs:label>father</rdfs:label>
+        <rdfs:subClassOf><owl:Class><owl:intersectionOf rdf:parseType="Collection"><rdf:Description rdf:about="http://example.org/family#Male"/><rdf:Description rdf:about="http://example.org/family#Parent"/></owl:intersectionOf></owl:Class></rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Mother">
+        <rdfs:label>mother</rdfs:label>
+        <rdfs:subClassOf><owl:Class><owl:intersectionOf rdf:parseType="Collection"><rdf:Description rdf:about="http://example.org/family#Female"/><rdf:Description rdf:about="http://example.org/family#Parent"/></owl:intersectionOf></owl:Class></rdfs:subClassOf>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <owl:intersectionOf rdf:parseType="Collection"><rdf:Description rdf:about="http://example.org/family#Male"/><rdf:Description rdf:about="http://example.org/family#Parent"/></owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Father"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <owl:intersectionOf rdf:parseType="Collection"><rdf:Description rdf:about="http://example.org/family#Female"/><rdf:Description rdf:about="http://example.org/family#Parent"/></owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Mother"/>
+    </rdf:Description>
+    <owl:Class rdf:about="http://example.org/family#Male">
+        <rdfs:label>male</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Female">
+        <rdfs:label>female</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Parent">
+        <rdfs:label>parent</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://example.org/family#hasChild"/>
+                <owl:someValuesFrom rdf:resource="http://example.org/family#Child"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Child">
+        <rdfs:label>child</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://example.org/family#hasParent"/>
+                <owl:someValuesFrom rdf:resource="http://example.org/family#Mother"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://example.org/family#hasParent"/>
+                <owl:someValuesFrom rdf:resource="http://example.org/family#Father"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/family#"
+     xml:base="http://example.org/family-tree"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/family-tree"/>
+    <!-- Aunt and Niece are declared without axioms: BERTSubs predicts their parents -->
+    <owl:Class rdf:about="http://example.org/family#Person">
+        <rdfs:label>person</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Male">
+        <rdfs:label>male</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Female">
+        <rdfs:label>female</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Parent">
+        <rdfs:label>parent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Child">
+        <rdfs:label>child</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Sibling">
+        <rdfs:label>sibling</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Spouse">
+        <rdfs:label>spouse</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Relative">
+        <rdfs:label>relative</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Grandparent">
+        <rdfs:label>grandparent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Parent"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Grandchild">
+        <rdfs:label>grandchild</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Child"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Father">
+        <rdfs:label>father</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Parent"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Mother">
+        <rdfs:label>mother</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Parent"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Son">
+        <rdfs:label>son</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Child"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Daughter">
+        <rdfs:label>daughter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Child"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Brother">
+        <rdfs:label>brother</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Sibling"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Sister">
+        <rdfs:label>sister</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Sibling"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Husband">
+        <rdfs:label>husband</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Spouse"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Wife">
+        <rdfs:label>wife</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Spouse"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Grandfather">
+        <rdfs:label>grandfather</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Grandparent"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Grandmother">
+        <rdfs:label>grandmother</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Grandparent"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Grandson">
+        <rdfs:label>grandson</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Grandchild"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Granddaughter">
+        <rdfs:label>granddaughter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Grandchild"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Man">
+        <rdfs:label>man</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Woman">
+        <rdfs:label>woman</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Boy">
+        <rdfs:label>boy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Girl">
+        <rdfs:label>girl</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Female"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Uncle">
+        <rdfs:label>uncle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Relative"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Nephew">
+        <rdfs:label>nephew</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Relative"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Male"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Cousin">
+        <rdfs:label>cousin</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://example.org/family#Relative"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Aunt">
+        <rdfs:label>aunt</rdfs:label>
+    </owl:Class>
+    <owl:Class rdf:about="http://example.org/family#Niece">
+        <rdfs:label>niece</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
